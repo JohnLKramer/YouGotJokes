@@ -1,0 +1,36 @@
+spring:
+  security:
+    user:
+      name: admin
+      password: password
+  application:
+    name: gotjokes
+  datasource:
+    url: jdbc:postgresql://localhost:5432/joke
+    username: pguser
+    password: pgpass
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+  springdoc:
+    api-docs:
+      enabled: true
+    swagger-ui:
+      enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Use "update", "create", or "none" based on your needs
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true  # Logs SQL queries
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security.web.context: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.jdbc.core: TRACE
